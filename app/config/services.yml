@@ -19,9 +19,13 @@ services:
         class: AppBundle\Form\RegistrationFormType 
         tags:
             - { name: form.type }
-            
+
     app.redirect_after_registration_subscriber:
         class: AppBundle\EventListener\RedirectAfterRegistrationSubscriber
         autowire: true
         tags:
             - { name: kernel.event_subscriber }
+
+    app.security.login_form_authenticator:
+        class: AppBundle\Security\LoginFormAuthenticator 
+        autowire: true
